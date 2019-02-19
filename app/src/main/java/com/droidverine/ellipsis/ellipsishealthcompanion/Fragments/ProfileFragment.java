@@ -59,7 +59,7 @@ CircleImageView circleImageView;
     Dialog myDialog;
     TextView txtweight,txtheight,txtcontact;
     public ProfileFragment() {
-        // Required empty public constructor
+        // Required empty public constructor init check
     }
 
     /**
