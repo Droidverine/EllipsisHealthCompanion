@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -58,6 +59,7 @@ CircleImageView circleImageView;
     Button edtbtn;
     Dialog myDialog;
     TextView txtweight,txtheight,txtcontact;
+    FloatingActionButton floatingActionButton;
     public ProfileFragment() {
         // Required empty public constructor init check
     }
@@ -98,6 +100,8 @@ CircleImageView circleImageView;
         TextView textView=(TextView)view.findViewById(R.id.usernameprofile);
         textView.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
         circleImageView=(CircleImageView)view.findViewById(R.id.avatar);
+        floatingActionButton=view.findViewById(R.id.fabprf);
+
         Log.d("dp",FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().normalizeScheme().toString());
         Picasso.with(getActivity()).load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()).fit().into(circleImageView);
         edtbtn=(Button)view.findViewById(R.id.edtbtn);

@@ -169,7 +169,6 @@
     android:layout_below="@+id/diagonalLayout"
     android:layout_marginTop="28dp"
     android:elevation="8dp"
-
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
@@ -206,7 +205,19 @@
         android:id="@+id/edtbtn"
         android:text="edit"/>
 
+
 </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabprf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
+        android:elevation="8dp"
+        android:src="@drawable/ic_add"
+        />
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:visibility="gone"

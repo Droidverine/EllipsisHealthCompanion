@@ -8,9 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.droidverine.ellipsis.ellipsishealthcompanion.R;
 import com.droidverine.ellipsis.ellipsishealthcompanion.Utils.DetailsManager;
 import com.firebase.ui.auth.ui.email.SignInActivity;
@@ -48,6 +50,7 @@ public class SigninActivity extends BaseActivity implements
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
     private TextView mDetailTextView;
+    ImageView logoel;
     Button adminbtn;
 
     @Override
@@ -57,7 +60,9 @@ public class SigninActivity extends BaseActivity implements
         DetailsManager detailsManager=new DetailsManager(this);
         // Views
 
-
+        logoel=findViewById(R.id.logoel);
+        Glide.with(getApplicationContext())
+                .load(R.drawable.ellipsis).centerInside().into(logoel);
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
 Log.d("signIn","sdssd");
