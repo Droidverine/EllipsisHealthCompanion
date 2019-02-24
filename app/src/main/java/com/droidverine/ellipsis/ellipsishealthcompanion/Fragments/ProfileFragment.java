@@ -101,7 +101,6 @@ CircleImageView circleImageView;
         textView.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
         circleImageView=(CircleImageView)view.findViewById(R.id.avatar);
         floatingActionButton=view.findViewById(R.id.fabprf);
-
         Log.d("dp",FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().normalizeScheme().toString());
         Picasso.with(getActivity()).load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()).fit().into(circleImageView);
         edtbtn=(Button)view.findViewById(R.id.edtbtn);
@@ -110,7 +109,49 @@ CircleImageView circleImageView;
         txtcontact=(TextView)view.findViewById(R.id.txtcontact);
 
         getData();
-        edtbtn.setOnClickListener(new View.OnClickListener() {
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog = new Dialog(getContext());
+
+                TextView txtclose,particollege,username;
+                final EditText contactno,height,weight;
+                Button btncall;
+                myDialog.setContentView(R.layout.custom_popup);
+                txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
+                txtclose.setText("X");
+                btncall = (Button) myDialog.findViewById(R.id.btncall);
+                myDialog.setContentView(R.layout.custom_popup);
+                txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
+                username=(TextView)myDialog.findViewById(R.id.partiname);
+                particollege=(TextView)myDialog.findViewById(R.id.collegename);
+                contactno=(EditText)myDialog.findViewById(R.id.customdiagcontactnoedt);
+                height=(EditText) myDialog.findViewById(R.id.customdiagheightedt);
+                weight=(EditText) myDialog.findViewById(R.id.customdiagweightedt);
+                txtclose.setText("X");
+                btncall = (Button) myDialog.findViewById(R.id.btncall);
+                btncall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Height=height.getText().toString();
+                        Weight=weight.getText().toString();
+                        Contactno=contactno.getText().toString();
+                        updateData();
+                    }
+                });
+                txtclose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        myDialog.dismiss();
+                    }
+                });
+                myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                myDialog.show();
+            }
+        });
+
+   /*     edtbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myDialog = new Dialog(getContext());
@@ -146,6 +187,7 @@ CircleImageView circleImageView;
                 myDialog.show();
             }
         });
+        */
         return view;
     }
 
